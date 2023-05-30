@@ -60,7 +60,7 @@ function par (numero) {
    var paroimpar = numero %2 === 0;
    var resultado = "El número " + numero + " es " + (paroimpar? "par." : "impar.");  
    console.log(resultado);
-   document.write(resultado);
+   document.write(resultado + "<br>");
 }
 
 par (4);
@@ -70,14 +70,15 @@ par (4);
 function par(numero) {
     if (numero % 2 === 0) {
       console.log(numero + " es un número es par.");
-      document.write(numero + " es un número es par.");
+      document.write(numero + " es un número es par." + "<br>");
     } else {
       console.log(numero + " es un número es impar.");
-      document.write(numero + "es un número es impar.");
+      document.write(numero + "es un número es impar." + "<br>");
     }
   }
   
   par(4);
+
 
 // Crear un objeto carro haciendo la abstracción de sus atributos y un objeto anidado.
 // Crear una función que devuelva la marca del carro.
@@ -97,14 +98,14 @@ function marca(coche) {
 }
 
 console.log(coche.marca);
-document.write(coche.marca);
+document.write(coche.marca + "<br>");
 
 function puertaS(coche){
     return coche.puertas;
 }
 
 console.log(coche.puertas);
-document.write(coche.puertas);
+document.write(coche.puertas + "<br>");
 
 
 function extra(coche) {
@@ -112,28 +113,22 @@ function extra(coche) {
 }
 
 console.log(coche.extras[1]);
-document.write(coche.extras[1]);
+document.write(coche.extras[1] + "<br>");
 
 //Crear un array de 10 números
 //Crear una función que imprima en consola todos los números de un array (Investigar ciclo for)
-//Crear una función que añada un número al array
-//Crear una función que elimine los números pares de ese array.
-//Crear una función que devuelva el número mayor de un array.
-//Crear una función que devuelva el número menor de un array.
-//Crear un función que convierta en minúsculas todas las letras de un texto.
-//Crear una función que convierta en mayúsculas todas las letras de un texto.
-//Crear una función que reciba un array de nombres y que convierta la primera letra de cada nombre en
-//mayúscula.
 
 var numeros = [91, 82, 73, 64, 55, 46, 37, 28, 19];
 console.log(numeros);
-document.write(numeros);
+document.write(numeros + "<br>");
 
 function iterador(numeros) {
     for (var i = 0; i < numeros.length; i++) {
       console.log(numeros[i]);
     }
   }
+
+//Crear una función que añada un número al array  
 
 function iterador(numeros) {
     numeros.push(100);
@@ -142,8 +137,9 @@ function iterador(numeros) {
   iterador(numeros);
   
   console.log(numeros);
-  document.write(numeros);
+  document.write(numeros + "<br>");
 
+//Crear una función que elimine los números pares de ese array.
   
 function paresfuera(numeros) {
     for (var i = 0; i < numeros.length; i++) {
@@ -156,7 +152,10 @@ function paresfuera(numeros) {
     paresfuera(numeros);
   
   console.log(numeros);
-  document.write(numeros);
+  document.write(numeros + "<br>");
+
+
+//Crear una función que devuelva el número mayor de un array.  
 
   function mayor(numeros) {
     var masmayor = 0;
@@ -170,7 +169,9 @@ function paresfuera(numeros) {
 
   var numeromasmayor = mayor(numeros); // declaro una vble externa que recoja el valor "local" de la funcion para retornarlo
   console.log(numeromasmayor);
-  document.write(numeromasmayor);
+  document.write(numeromasmayor + "<br>");
+
+//Crear una función que devuelva el número menor de un array.
 
 
   function menor(numeros) {
@@ -186,6 +187,55 @@ function paresfuera(numeros) {
   var numeroMasMenor = menor(numeros);
   
   console.log(numeroMasMenor);
-  document.write(numeroMasMenor);
+  document.write(numeroMasMenor + "<br>");
   
+//Crear un función que convierta en minúsculas todas las letras de un texto.
+
+function minusculas(texto) {
+  return texto.toLowerCase();
+}
+
+var frase= "ME GUSTA MUCHO EL CAFÉ";
+var minusculas = minusculas(frase);
+
+console.log(minusculas);
+document.write(minusculas + "<br>");
+
+//Crear una función que convierta en mayúsculas todas las letras de un texto.
+
+function mayusculas(texto) {
+  return texto.toUpperCase();
+}
+
+var frase= "ME GUSTA MUCHO EL CAFÉ";
+var mayusculas = mayusculas(frase);
+
+console.log(mayusculas);
+document.write(mayusculas + "<br>");
+
+
+//Crear una función que reciba un array de nombres y que convierta la primera letra de cada nombre en
+//mayúscula.
+
+function primeramayuscula(nombres) {
+  var nombresMayusculas = [];
+  
+  for (var i = 0; i < nombres.length; i++) {  // Recorro el array desde la posición 0 hasta la última determinada por length
+    
+    var nombre = nombres[i]; // Recojo cada "nombre" en cada iteración
+    var primeraLetraMayuscula = nombre.charAt(0).toUpperCase(); // Cojo la primera letra de cada palabra y la paso a mayúscula
+    var restoNombre = nombre.slice(1); // cojo el resto del nombre a partir de la segunda letra
+    var nombreCompleto = primeraLetraMayuscula + restoNombre; //concateno primera letra mayúscula al resto del nombre
+    
+    nombresMayusculas.push(nombreCompleto); // coloco el nombre completo al final del array
+  }
+  
+  return nombresMayusculas;
+}
+
+var nombres = ["Mireia", "Helena", "Jimena", "Maite"];
+var nombresMayusculas = primeramayuscula(nombres);
+
+console.log(nombresMayusculas);
+document.write(nombresMayusculas + ("<br>"));
 
