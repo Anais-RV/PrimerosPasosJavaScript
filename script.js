@@ -2,11 +2,11 @@ console.log("¡Hola, mundo!");
 
 // Crear variables de diferentes tipos de datos:
 
-var numero = 39;
+let numero = 39;
 console.log(numero);
-var texto = "Quiero un café!";
+let texto = "Quiero un café!";
 console.log(texto);
-var booleano = true;
+let booleano = true;
 console.log(booleano);
 
 
@@ -14,28 +14,29 @@ console.log(booleano);
 // matemáticas básicas con las variables creadas anteriormente (suma, resta, multiplicación, división).
 // Deberás imprimir el resultado por la pantalla del navegador y la consola.
 
-var suma = numero + numero;
+let suma = numero + numero;
 console.log(suma);
-var resta = numero - 3;
+let resta = numero - 3;
 console.log(resta);
-var multiplicacion = numero * 5;
+let multiplicacion = numero * 5;
 console.log(multiplicacion);
-var division = numero/2;
+let division = numero/2;
 console.log(division);
 
 
 //De las variables declaradas anteriormente, identifica las que son de tipo texto y concatena dichas
 //cadenas de texto.Deberás imprimir el resultado por la pantalla del navegador y la consola.
 
-var concatenar = texto + " ¡Cuánto antes!";
+let concatenar = texto + " ¡Cuánto antes!";
 console.log(concatenar);
 
 //Crear una función que imprima por la pantalla del navegador y la consola el mensaje "Hola, [nombre]"
 //con un parámetro para el nombre.
 
 function saludar(nombre) {
-    var mensaje = "Hola, " + nombre;
+    let mensaje = "Hola, " + nombre;
     console.log(mensaje);
+    document.write(mensaje + "<br>");
   }
   
   saludar("Anaïs");
@@ -45,8 +46,9 @@ function saludar(nombre) {
 //imprimir el resultado por la pantalla del navegador y la consola.
 
 function sumar (sumando1, sumando2) {
-    var suma = sumando1 + sumando2;
+    let suma = sumando1 + sumando2;
     console.log(suma);
+    document.write(suma + "<br>");
 }
 
 sumar(3, 5);
@@ -57,8 +59,8 @@ sumar(3, 5);
 // Con operador ternario
 
 function par (numero) {
-   var paroimpar = numero %2 === 0;
-   var resultado = "El número " + numero + " es " + (paroimpar? "par." : "impar.");  
+   let paroimpar = numero %2 === 0;
+   let resultado = "El número " + numero + " es " + (paroimpar? "par." : "impar.");  
    console.log(resultado);
    document.write(resultado + "<br>");
 }
@@ -85,7 +87,7 @@ function par(numero) {
 // Crear una función que devuelva la cantidad de puertas que tiene el carro.
 // Crear una función que devuelva un atributo del objeto anidado.
 
-var coche = {
+let coche = {
     marca: "Fiat",
     modelo: "500-XL",
     color: "Rojo",
@@ -118,12 +120,12 @@ document.write(coche.extras[1] + "<br>");
 //Crear un array de 10 números
 //Crear una función que imprima en consola todos los números de un array (Investigar ciclo for)
 
-var numeros = [91, 82, 73, 64, 55, 46, 37, 28, 19];
+let numeros = [91, 82, 73, 64, 55, 46, 37, 28, 19];
 console.log(numeros);
 document.write(numeros + "<br>");
 
 function iterador(numeros) {
-    for (var i = 0; i < numeros.length; i++) {
+    for (let i = 0; i < numeros.length; i++) {
       console.log(numeros[i]);
     }
   }
@@ -142,7 +144,7 @@ function iterador(numeros) {
 //Crear una función que elimine los números pares de ese array.
   
 function paresfuera(numeros) {
-    for (var i = 0; i < numeros.length; i++) {
+    for (let i = 0; i < numeros.length; i++) {
       if (numeros[i] % 2 === 0) {
         numeros.splice(i, 1); // borra desde la posición i, x posiciones;
         i--; // ajusta i, restando una posición si eliminó un par.
@@ -239,3 +241,87 @@ var nombresMayusculas = primeramayuscula(nombres);
 console.log(nombresMayusculas);
 document.write(nombresMayusculas + ("<br>"));
 
+//Crear un botón en HTML y usar JavaScript para mostrar un mensaje cuando se hace clic.
+
+function handleClick() {
+  alert('¿Solo o con leche?');
+}
+
+document.getElementById('BTN').addEventListener('click', handleClick);
+
+//Cambiar el contenido de un elemento HTML mediante JavaScript.
+
+function changeClick() {
+  let elemento = document.getElementById('BTN2');
+  if (elemento.textContent === "COLD BREW") {
+    elemento.textContent = "V60";
+  } else {
+    elemento.textContent = "COLD BREW";
+  }
+}
+
+//Ocultar y mostrar elementos HTML utilizando JavaScript.
+
+let btn = document.getElementById("BTN3");
+
+btn.addEventListener("click", () => { // arrow function, escucha el clic y oculta el bBTN·
+  btn.style.display = "none"; 
+  setTimeout(() => {
+    btn.style.display = "block";
+  }, 2000);
+});
+
+
+//Crear un array de 10 nombres.
+
+let CoffeeOrigins = ["Colombia", "Ethiopia", "Brazil", "Costa Rica", "Guatemala", "Kenya", "Indonesia"]
+
+//Crear una función que imprima en pantalla una lista con los nombres del array de nombres.
+
+const lista = document.getElementById("origins");
+const coffeeOrigins = ["Colombia", "Brasil", "Etiopía", "Costa Rica", "Guatemala", "Kenia", "Indonesia"];
+
+coffeeOrigins.forEach(origen => {
+  const item = document.createElement("li");
+  item.textContent = origen;
+  lista.appendChild(item);
+});
+
+
+//Crear un array de números.
+
+let numbers = ["22","33","44","55","66","77","88"]
+
+//Crear una función que pinte en pantalla cuántos números tiene el array de números.
+
+const counter = document.getElementById("count");
+let i = 0;
+
+numbers.forEach(element => {
+  i++;
+});
+
+counter.textContent = i;
+
+//Crea los nodos necesarios para imprimir un formulario.
+
+const form = document.createElement('form');
+
+const input1 = document.createElement('input');
+input1.type = 'text';
+input1.placeholder = 'Nombre';
+
+const input2 = document.createElement('input');
+input2.type = "text";
+input2.placeholder = "Ciudad"
+
+
+form.appendChild(input1);
+form.appendChild(input2);
+document.body.appendChild(form);
+
+//Crea los nodos necesarios para imprimir una tabla.
+//Crea array de objetos 10 objetos con su respectivos key:value. Cada objeto deberá tener las siguientes keys:
+//id, name, status, species, type, gender
+//El value de cada key lo asignas tú
+//Imprime cada elemento del objeto dentro de la tabla que creaste anteriormente.
