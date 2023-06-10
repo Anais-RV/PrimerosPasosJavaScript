@@ -60,26 +60,26 @@ sumar(3, 5);
 
 function par (numero) {
    let paroimpar = numero %2 === 0;
-   let resultado = "El número " + numero + " es " + (paroimpar? "par." : "impar.");  
+   let resultado = ("El número " + numero + " es " + (paroimpar? "par." : "impar."));  
    console.log(resultado);
    document.write(resultado + "<br>");
 }
 
-par (4);
+par (15);
 
 // Con condicionales
 
-function par(numero) {
+function paroimpar (numero) {
     if (numero % 2 === 0) {
-      console.log(numero + " es un número es par.");
-      document.write(numero + " es un número es par." + "<br>");
+      console.log(numero + " es un número par.");
+      document.write(numero + " es un número par." + "<br>");
     } else {
-      console.log(numero + " es un número es impar.");
-      document.write(numero + "es un número es impar." + "<br>");
+      console.log(numero + " es un número impar.");
+      document.write(numero + " es un número impar." + "<br>");
     }
   }
   
-  par(4);
+  paroimpar(5);
 
 
 // Crear un objeto carro haciendo la abstracción de sus atributos y un objeto anidado.
@@ -321,7 +321,50 @@ form.appendChild(input2);
 document.body.appendChild(form);
 
 //Crea los nodos necesarios para imprimir una tabla.
+
+//Creo dos bucles anidados de forma que el primero me genera las filas y con el segundo voy iterando para crear las celdas conformando así la tabla de cuantas filas/columnas necesite.
+// Utilizo una matriz para asignarle en las iteraciones el contenido de las celdas, datos.
+
+let tableContainer = document.getElementById("table-container"); //tomamos el contenedor creado en html
+
+let table = document.createElement("table"); //creamos una tabla
+table.classList.add("table"); //le asignamos la clase table -> css
+
+let tableBody = document.createElement("tbody"); //creamos el cupero de la tabla donde irán filas y columnas
+
+let data = [ // Matriz para introducir de forma dinámica los datos en la tabla
+  ["Color", "Talla", "Cantidad"],
+  ["Rojo", "L", "33"],
+  ["Verde", "XL", "3"]
+];
+
+for (let i = 0; i < data.length; i++) { //Iteramos sobre la matriz para crear las filas de la tabla, cada iteración, un elemento.
+  let rowElement = document.createElement("tr"); 
+
+  for (let j = 0; j < data[i].length; j++) { // Iteramos sobre los elementos para crear las celdas
+    let cell = document.createElement("td");
+    let text = document.createTextNode(data[i][j]); //
+    cell.appendChild(text);
+    rowElement.appendChild(cell);
+  }
+
+  tableBody.appendChild(rowElement);
+}
+
+table.appendChild(tableBody);
+document.body.appendChild(table);
+
+
 //Crea array de objetos 10 objetos con su respectivos key:value. Cada objeto deberá tener las siguientes keys:
 //id, name, status, species, type, gender
 //El value de cada key lo asignas tú
 //Imprime cada elemento del objeto dentro de la tabla que creaste anteriormente.
+
+//let datatable = [ 
+//  {id: 1, name:"Las Nubes", origen:"Nicaragua", variedad:"Caturra", método:"Lavado"}
+//  {id: 2, name:"Swiss Water", origen:"Colombia", variedad:"Caturra", método:"Lavado"}
+//  {id: 3, name:"Ruanda Baho", origen:"Karambo", variedad:"Bourbon", método:"Lavado"}
+
+//];
+
+

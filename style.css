@@ -121,3 +121,17 @@ form {
     cursor: pointer;
   }
   
+  .table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  .table th, .table td {
+    border: 3px solid rgb(160, 9, 97);
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
